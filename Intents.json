@@ -1,0 +1,25 @@
+{ "intents":[
+{"tag" : "greetings",
+"Patterns" : ["hallo", "hey", "hi", "good day", "greetings", "what's up", " how is it going"],
+"response" : ["Hallo!", "Hey!", "What can l do for you? "]
+},
+{"tag" : "Age",
+"Patterns" : ["how old are you", "what is your age", "old", "age", "how old", "How old Chatbot"],
+"response" : ["I am 24 year old!", "24 years old!", " I am Chatbot, 24 years old! "]
+    },
+
+{"tag" : "Name",
+"Patterns" : ["What it you name", "whats your name", "your name", "what are you called", "can you tell me your name", "who are you", " can you tell me your name"],
+"response" : ["Chatbot!", "My name is Chatbot!", "My name is Chatbot and l am 24 years old "]
+},
+
+{"tag" : "Restuarant",
+"Patterns" : ["What is the name of your restaurant", "What is your restaurant called ", "name of your restaurant", "what can l call your restaurant"],
+"response" : ["Derby!", "The name of the Restaurant is Derby! How can l assist."]
+    },
+{"tag" : "Buy",
+"Patterns" : ["I want to buy whats your menu", "menu", "Derby's menu", "What do your restaurant sell", "what do you sell", "what's up", " how is it going"],
+"response" : ["Good day there is the menu you request for!", "Here is our menu, thank you"]
+        }
+
+]}
