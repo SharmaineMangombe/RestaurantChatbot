@@ -4,12 +4,13 @@ import pickle
 from tabnanny import verbose
 from humanize import activate
 import numpy as np
+import tensorflow as tf
 
 import nltk
 from nltk.stem import WordNetLemmatizer
 from sklearn import metrics
 
-from keras.models import Sequential
+from keras.models import Sequential 
 from keras.layers import Dense, Activation, Dropout
 from tensorflow import keras
 
@@ -29,6 +30,7 @@ for intent in intents['intents']:
         documents.append((word_list, intent['tag']))
         if intent['tag'] not in classes:
             classes.append(intent['tag'])
+
 
 words = [lemmatizer.lemmatize(word) for word in words if word not in ignore_letters]
 words = sorted(set(words))
@@ -63,11 +65,15 @@ model.add(Dense(128, input_shape=(len(train_x[0]),), activation= 'relu'))
 model.add(Dropout(0.5))
 model.add(Dense(64, activation='relu'))
 model.add(Dropout(0.5))
+model.add(Dense(32, activation='relu'))
+model.add(Dropout(0.5))
+model.add(Dense(16, activation='relu'))
+model.add(Dropout(0.5))
 model.add(Dense(len(train_y[0]), activation= 'softmax'))
 
-opt = keras.optimizers.Adam(learning_rate=0.01)
+opt = tf.keras.optimizers.SGD(learning_rate=0.01, decay=1e-6, momentum=0.9, nesterov=True )
 model.compile(loss='categorical_crossentropy', optimizer= opt, metrics=['accuracy'])
-hist = model.fit(np.array(train_x), np.array(train_y), epochs=200, batch_size=5)
+hist = model.fit(np.array(train_x), np.array(train_y), epochs=200, batch_size=5, verbose=1)
 model.save('chatbot-model.h5', hist)
 print("Done")
 

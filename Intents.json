@@ -8,7 +8,7 @@
 "response" : ["I am 24 year old!", "24 years old!", " I am Chatbot, 24 years old! "]
     },
 
-{"tag" : "Name",
+{"tag" : "Name", 
 "Patterns" : ["What it you name", "whats your name", "your name", "what are you called", "can you tell me your name", "who are you", " can you tell me your name"],
 "response" : ["Chatbot!", "My name is Chatbot!", "My name is Chatbot and l am 24 years old "]
 },
@@ -22,4 +22,4 @@
 "response" : ["Good day there is the menu you request for!", "Here is our menu, thank you"]
         }
 
-]}
+ ]}
